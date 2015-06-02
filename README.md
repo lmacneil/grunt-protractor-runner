@@ -1,3 +1,5 @@
+# !!!WARNING!!! Patched version of Grunt-Protractor-Runner.
+
 # grunt-protractor-runner
 
 [![Build Status](https://travis-ci.org/teerapap/grunt-protractor-runner.svg?branch=master)](https://travis-ci.org/teerapap/grunt-protractor-runner)
