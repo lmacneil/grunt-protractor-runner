@@ -7,7 +7,11 @@
 > A Grunt plugin for running [Protractor](https://github.com/angular/protractor) runner.
 
 ## Getting Started
-This plugin requires Grunt `~0.4.1` and Protractor `2.x.x`
+This plugin requires Grunt `~0.4.1`. 
+
+For Protractor `3.x.x`, plese use this plugin version `v3.x.x`.
+
+For Protractor `2.x.x`, plese use this plugin version `v2.x.x`.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -86,7 +90,7 @@ If true, grunt will pass 'debug' as second argument to protractor CLI to enable 
 Type: `Object`
 Default value: `{}`
 
-Arguments passed to the command. These arguments can also be supplied via command-line too. Ex.`grunt protractor --specs=specs/some-test.js`
+Arguments passed to the command. These arguments can also be supplied via command-line too. Ex.`grunt protractor --specs=specs/some-test.js`  or for object options `grunt protractor --cucumberOpts={\"tags\":\"@quick\"}`
 Supported arguments are below.
 
 * seleniumAddress `string`: A running selenium address to use
@@ -123,7 +127,13 @@ The file that the task should output the results to.
 Type: `String`
 Default value: `node`
 
-Path to the node binary file. Useful if node is not on the PATH. 
+Path to the node binary file. Useful if node is not on the PATH.
+
+#### options.webdriverManagerUpdate
+Type: `Boolean`
+Default value: `false`
+
+If true, `webdriver-manager update` will run and install/update selenium driver.
 
 ## Tests
 
@@ -131,6 +141,7 @@ Run `npm install` to install dependencies.
 
 Then run `grunt` or `npm test` to test the module. You will encounter these.
 
+* Runs unit and e2e tests
 * It opens chrome a couple of times without warnings or errors.
 * A test task fails but the test process keeps alive and continues to the next test tasks.
 
@@ -158,6 +169,18 @@ You need to install/update selenium webdriver for protractor.
 
 ## Release History
 
+* 3.0.0
+  * Update protractor to version 3
+  * Update other dependencies including through2 and split to latest version
+
+* 2.1.2
+  * Fix boolean parameters in object.args.params (#130)
+  * Modify unit tests to run nodeunit test faster and after protractor task
+* 2.1.1
+  * Fix EINVAL error when run in git bash shell (#134)
+* 2.1.0
+  * Add `options.webdriverManagerUpdate` option (#125)
+  * Fix support for object option via command-line (#116)
 * 2.0.0
   * Upgrade `protractor` to `^2.0.0` (#114)
   * `chromeOnly` in `options.args` is deprecated. Replaced by `directConnect` (#114)
