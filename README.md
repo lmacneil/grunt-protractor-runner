@@ -1,5 +1,3 @@
-# !!!WARNING!!! Patched version of Grunt-Protractor-Runner.
-
 # grunt-protractor-runner
 
 [![Build Status](https://travis-ci.org/teerapap/grunt-protractor-runner.svg?branch=master)](https://travis-ci.org/teerapap/grunt-protractor-runner)
@@ -9,9 +7,9 @@
 ## Getting Started
 This plugin requires Grunt `~0.4.1`. 
 
-For Protractor `3.x.x`, plese use this plugin version `v3.x.x`.
+For Protractor `3.x.x`, please use version `v3.x.x` of this plugin.
 
-For Protractor `2.x.x`, plese use this plugin version `v2.x.x`.
+For Protractor `2.x.x`, please use version `v2.x.x` of this plugin.
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
@@ -62,7 +60,7 @@ grunt.initConfig({
 
 #### options.configFile
 Type: `String`
-Default value: `node_modules/protractor/referenceConf.js` relative to where protractor module is installed.
+Default value: No default value
 
 A protractor config file.
 
@@ -116,12 +114,19 @@ Supported arguments are below.
 * mochaOpts `object`: Mocha test framework options object to be passed
 * beforeLaunch `string`: You can specify a file containing code to run once configs are read but before any environment setup. This will only run once, and before onPrepare.
 * onPrepare `string`: You can specify a file containing code to run once protractor is ready and available, and before the specs are executed. If multiple capabilities are being run, this will run once per capability.
+* webDriverProxy `string`: WebDriver proxy configuration to run remote tests
 
 #### options.output
 Type: `String`
 Default value: `false`
 
 The file that the task should output the results to.
+
+#### options.outputOptions
+Type: `Object`
+Default value: `{}`
+
+Options for output file. For details see: [fs.createWriteStream's options](https://nodejs.org/api/fs.html#fs_fs_createwritestream_path_options)
 
 #### options.nodeBin
 Type: `String`
@@ -169,6 +174,10 @@ You need to install/update selenium webdriver for protractor.
 
 ## Release History
 
+* 3.1.0
+  * Add `options.outputOptions` (#143)
+  * Support `webDriverProxy` in `options.args` (#147)
+  * Remove referenceConf.js as default value of options.configFile because it does not exist anymore
 * 3.0.0
   * Update protractor to version 3
   * Update other dependencies including through2 and split to latest version
