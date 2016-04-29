@@ -23,7 +23,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "protractor": "git+ssh://stash.americas.nwea.pvt/sel/protractor.git#master",
+    "protractor": "lmacneil/protractor",
     "split": "~1.0.0",
     "through2": "~2.0.0"
   },
